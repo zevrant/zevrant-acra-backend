@@ -56,7 +56,7 @@ zevrant:
       clientSecret: ${acra.oauth.clientSecret}
     notification: https://localhost:9008/zevrant-notification-service
   encrypted:
-    properties: acra/oauth/clientId,acra/oauth/clientSecret
+    properties: acra/oauth/clientId,acra/oauth/clientSecret,rds/acra/password
 
 context:
   initializer:
