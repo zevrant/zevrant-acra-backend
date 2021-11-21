@@ -1,0 +1,76 @@
+spring:
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+  webflux:
+    base-path: /${spring.application.name}
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: zevrant-acra-backend
+  datasource:
+    url: jdbc:postgresql://localhost:5440/acra?createDatabaseIfNotExist=true
+    username: sa
+    password: example
+    jpa:
+      show-sql: false
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.yaml #placeholder in case we need profile specific db inserts
+  profiles:
+    active: local
+    include: liquibase
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: https://localhost:9001/auth/realms/zevrant-services
+        registration:
+          keycloak:
+            client-id: ${zevrant.services.oauth.clientId}
+            client-scret: ${zevrant.services.oauth.clientSecret}
+      resourceserver:
+        jwt:
+          issuer-uri: ${spring.security.oauth2.client.provider.keycloak.issuer-uri}
+
+server:
+  servlet:
+    context-path: /${spring.application.name}
+  ssl:
+    key-store: /storage/keys/zevrant-services.p12
+    key-store-type: PKCS12
+    key-store-password: ${password}
+  port: 9010
+
+
+zevrant:
+  unsecured:
+    endpoints: /actuator/health,/actuator/info,/actuator/prometheus,/reports
+  services:
+    oauth:
+      clientId: ${acra.oauth.clientId}
+      clientSecret: ${acra.oauth.clientSecret}
+    notification: https://localhost:9008/zevrant-notification-service
+  encrypted:
+    properties: acra/oauth/clientId,acra/oauth/clientSecret
+
+context:
+  initializer:
+    classes: com.zevrant.services.zevrantsecuritycommon.services.EncryptedPropertyContextInitializer
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  health:
+    ldap:
+      enabled: false
+
+logging:
+  level:
+    root: info
