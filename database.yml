@@ -49,7 +49,7 @@ spec:
                   name: acra-db-password
                   key: password
             - name: PGDATA
-              value: /storage/keys/db/$ENVIRONMENT/backup/
+              value: /storage/keys/db/$ENVIRONMENT/acra/
             - name: POSTGRES_USER
               value: zevrant
             - name: POSTGRES_DB
