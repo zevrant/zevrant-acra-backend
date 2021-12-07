@@ -80,3 +80,11 @@ databaseChangeLog:
               - column:
                   name: resolved_version
                   type: varchar(255)
+  - changeSet:
+      id: 2
+      author: zevrant
+      changes:
+        - dropUniqueConstraint:
+            constraintName: report_app_version_code_key
+            schemaName: public
+            tableName: REPORT

@@ -5,7 +5,7 @@ metadata:
 spec:
   ports:
     - port: 443
-      targetPort: 9008
+      targetPort: 9010
   selector:
     app: zevrant-acra-backend
 
