@@ -34,7 +34,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.liquibase:liquibase-core:4.6.1'
+    implementation 'org.liquibase:liquibase-core:4.6.2'
     runtimeOnly 'org.postgresql:postgresql'
 
     liquibaseRuntime 'org.liquibase:liquibase-core:4.6.1'
