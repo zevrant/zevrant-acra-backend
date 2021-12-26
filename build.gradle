@@ -27,6 +27,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'com.zevrant.services:zevrant-universal-common:1'
     implementation 'com.zevrant.services:zevrant-security-common:6'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'

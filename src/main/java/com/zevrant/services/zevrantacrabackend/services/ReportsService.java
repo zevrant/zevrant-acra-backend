@@ -3,7 +3,7 @@ package com.zevrant.services.zevrantacrabackend.services;
 import com.zevrant.services.zevrantacrabackend.entities.Report;
 import com.zevrant.services.zevrantacrabackend.exceptions.ReportNotFoundException;
 import com.zevrant.services.zevrantacrabackend.repositories.ReportsRepository;
-import com.zevrant.services.zevrantacrabackend.rest.request.CrashReport;
+import com.zevrant.services.zevrantuniversalcommon.rest.acra.request.CrashReport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

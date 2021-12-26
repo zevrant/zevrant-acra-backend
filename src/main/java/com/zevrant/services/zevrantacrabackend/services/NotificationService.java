@@ -4,8 +4,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.zevrant.services.zevrantacrabackend.entities.Report;
-import com.zevrant.services.zevrantacrabackend.rest.request.Notification;
-import com.zevrant.services.zevrantacrabackend.rest.response.AccessToken;
+import com.zevrant.services.zevrantuniversalcommon.rest.acra.request.Notification;
+import com.zevrant.services.zevrantuniversalcommon.rest.oauth.response.OAuthToken;
 import io.micrometer.core.instrument.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -71,10 +71,11 @@ public class NotificationService {
             body.set("grant_type", "client_credentials");
             HttpEntity<MultiValueMap<String, String>> entity = new HttpEntity<>(body, headers);
 
-            ResponseEntity<AccessToken> response = restTemplate.exchange(this.oauthUrl + "/protocol/openid-connect/token" ,
-                    HttpMethod.POST, entity, AccessToken.class);
+            ResponseEntity<OAuthToken> response = restTemplate.exchange(this.oauthUrl + "/protocol/openid-connect/token" ,
+                    HttpMethod.POST, entity, OAuthToken.class);
 
             assert response.hasBody();
+            assert response.getBody() != null;
             assert StringUtils.isNotBlank(response.getBody().getAccessToken());
             headers = new HttpHeaders();
             headers.set("NOTIFICATION_TYPE", "EMAIL");
