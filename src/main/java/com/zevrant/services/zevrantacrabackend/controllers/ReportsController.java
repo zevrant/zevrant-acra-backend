@@ -39,8 +39,9 @@ public class ReportsController {
     }
 
     @PutMapping
-    public CrashReport updateReport(@RequestBody CrashReport crashReport) {
-        return reportsService.convertReport(reportsService.updateReport(crashReport));
+    @PreAuthorize("hasAnyRole('reports')")
+    public Mono<CrashReport> updateReport(@RequestBody CrashReport crashReport) {
+        return Mono.just(reportsService.convertReport(reportsService.updateReport(crashReport)));
     }
 
 }
