@@ -28,8 +28,7 @@ public class ReportsController {
     }
 
     @PostMapping
-    @PreAuthorize("hasAnyRole('reports')")
-    public Mono<CrashReport> submitReport(@RequestBody(required = false) CrashReport crashReport) throws JsonProcessingException {
+    public Mono<CrashReport> submitReport(@RequestBody(required = false) CrashReport crashReport) {
         Report report = reportsService.createReport(crashReport);
 
         notificationService.sendCrashReport(report);
