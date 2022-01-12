@@ -24,3 +24,7 @@ spring:
 zevrant:
   services:
     notification: https://zevrant-notification-service/zevrant-notification-service
+
+logging:
+  level:
+    root: debug
