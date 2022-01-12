@@ -33,7 +33,7 @@ spec:
         - name: database
           nfs:
             server: nfs-controller.zevrant-services.com
-            path: /acra-$ENVIRONMENT
+            path: /nfs/exports/acra-$ENVIRONMENT
       nodeSelector:
         architecture: arm
       containers:
