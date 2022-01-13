@@ -62,10 +62,10 @@ spec:
               scheme: HTTPS
               path: /zevrant-acra-backend/actuator/health
               port: 9010
-            initialDelaySeconds: 10
+            initialDelaySeconds: 30
           livenessProbe:
             httpGet:
               scheme: HTTPS
               path: /zevrant-acra-backend/actuator/health
               port: 9010
-            initialDelaySeconds: 10
+            initialDelaySeconds: 30
