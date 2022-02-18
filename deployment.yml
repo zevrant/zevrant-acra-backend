@@ -39,16 +39,16 @@ spec:
         - name: zevrant-acra-backend
           image: docker.io/zevrant/zevrant-acra-backend:$VERSION
           env:
-            - name: AWS_ACCESS_KEY_ID
+            - name: SECRET_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
-                  name: zevrant-acra-backend-aws
-                  key: username
-            - name: AWS_SECRET_ACCESS_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: zevrant-acra-backend-aws
+                  name: acra-vault-credentials
                   key: password
+            - name: ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: acra-vault-credentials
+                  key: username
             - name: ENVIRONMENT
               value: $ENVIRONMENT
             - name: POD_IP

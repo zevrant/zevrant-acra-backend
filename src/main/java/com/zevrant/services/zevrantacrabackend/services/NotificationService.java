@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.zevrant.services.zevrantacrabackend.entities.Report;
-import com.zevrant.services.zevrantuniversalcommon.rest.acra.request.Notification;
+import com.zevrant.services.zevrantuniversalcommon.rest.notification.request.Notification;
 import com.zevrant.services.zevrantuniversalcommon.rest.oauth.response.OAuthToken;
 import io.micrometer.core.instrument.util.StringUtils;
 import org.slf4j.Logger;
