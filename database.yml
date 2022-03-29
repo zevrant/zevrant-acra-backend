@@ -14,7 +14,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: zevrant-acra-backend-db-deployment
+  name: zevrant-acra-backend-db
   labels:
     app: zevrant-acra-backend-db
 spec:
