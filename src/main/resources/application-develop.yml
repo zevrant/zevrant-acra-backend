@@ -27,4 +27,5 @@ zevrant:
 
 logging:
   level:
-    root: debug
+    com.zevrant.services: debug
+    root: info
